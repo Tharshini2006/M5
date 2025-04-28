@@ -12,20 +12,19 @@ Write a C program to convert a 23.65 into 25 using pointer
 ```c
 #include <stdio.h>
 int main() {
-    double num = 23.65;
-    double *ptr;
-    ptr = &num;
-   *ptr = 25.0;
-    printf("Modified value: %.2f\n", num);
+    float num = 23.65;
+    float *ptr = &num;
+    printf("Original number: %.2f\n", *ptr);
+    *ptr = 25.0;
+    printf("Modified number: %.2f\n", *ptr);
     return 0;
 }
 ```
 
 
 ## OUTPUT:
-```
-Modified value: 25.00
-```
+![image](https://github.com/user-attachments/assets/8b6525da-894e-48a0-ba2d-fe060f0a314d)
+
  	
 
 
@@ -62,28 +61,25 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 ## PROGRAM:
 ```c
 #include <stdio.h>
-
-unsigned long long calculateProduct(int n) {
-    if (n == 1)
-        return 1;
-    else
-        return n * calculateProduct(n - 1);
+unsigned long long product(int n) {
+    if (n == 1) {
+       return 1;
+    } else {
+       return n * product(n - 1);
+    }
 }
-
 int main() {
     int n = 12;
-    unsigned long long product;
-
-    product = calculateProduct(n);
-    printf("The product of the first 12 natural numbers is: %llu\n", product);
-
+    unsigned long long result;
+    result = product(n);
+    printf("Product of first 12 natural numbers is: %llu\n", result);
     return 0;
 }
+
 ```
 ## OUTPUT:
-```
-The product of the first 12 natural numbers is: 479001600
-```
+![image](https://github.com/user-attachments/assets/80b34721-72f6-441a-8ec5-7a93146ff245)
+
          		
 ## RESULT:
 
@@ -107,56 +103,35 @@ Write C Program to find Sum of each row of a Matrix
 
 ## PROGRAM:
 ```c
-#include <stdio.h>
-
-int main() {
-    int rows, cols, i, j, sum;
-    int matrix[10][10];
-
-    printf("Enter number of rows (max 10): ");
-    scanf("%d", &rows);
-
-    printf("Enter number of columns (max 10): ");
-    scanf("%d", &cols);
-
-    if (rows > 10 || cols > 10 || rows < 1 || cols < 1) {
-        printf("Error: Rows and columns must be between 1 and 10.\n");
-        return 1;
+#include<stdio.h>
+int main()
+{
+   int m,n,i,j;
+   scanf("%d %d",&m,&n);
+   int arr[m][n];
+   for (i=0;i<m;i++){
+       for (j=0;j<n;j++){
+          scanf("%d",&arr[i][j]);
+       }
+   }
+   printf("Sum of each row:\n");
+   for (i=0;i<m;i++){
+       int sum=0;
+       for (j=0;j<n;j++){
+           sum+=arr[i][j];
+       }
+       printf("Row %d sum = %d\n",i+1,sum);
     }
-
-    printf("Enter elements of the matrix:\n");
-    for (i = 0; i < rows; i++) {
-        for (j = 0; j < cols; j++) {
-            printf("Element [%d][%d]: ", i + 1, j + 1);
-            scanf("%d", &matrix[i][j]);
-        }
-    }
-
-    printf("\nRow sums:\n");
-    for (i = 0; i < rows; i++) {
-        sum = 0;
-        for (j = 0; j < cols; j++) {
-            sum += matrix[i][j];
-        }
-        printf("Sum of row %d = %d\n", i + 1, sum);
-    }
-
     return 0;
 }
+
 ```
 
 
 
 ## OUTPUT
-```
-Enter number of rows: 2
-Enter number of columns: 3
-Enter elements of the matrix:
-1 2 3
-4 5 6
-Sum of row 1 = 6
-Sum of row 2 = 15
-```
+![image](https://github.com/user-attachments/assets/173bc9fb-2fb4-478c-b9e3-ee7cb58b5ed9)
+
 
 
  
@@ -211,15 +186,8 @@ int main() {
 
 
  ## OUTPUT
- ```
-Enter a string: PROGRAM
-Enter number of rows: 5
-P R O G R A M
-P R O G R A M
-P R O G R A M
-P R O G R A M
-P R O G R A M
-```
+![image](https://github.com/user-attachments/assets/29c04994-87d7-4a66-a7cf-4a5e35ee2110)
+
 
  
 
@@ -286,13 +254,8 @@ int main() {
 ```
 
 ## OUTPUT
-```
-Enter number of elements (max 10): 6
-Enter 6 elements:
-5 10 15 20 25 30
-The array elements are:
-5 10 15 20 25 30
-```
+![image](https://github.com/user-attachments/assets/1efb1d34-6971-4479-97d0-116fe549d2ab)
+
 
  
 
